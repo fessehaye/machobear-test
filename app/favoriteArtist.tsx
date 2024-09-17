@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import { FavoriteArtists } from "./addToFavorites";
 import { Link } from "@remix-run/react";
+import { FavoriteArtists } from "./types";
 
 export default function FavoriteArtistsComponent() {
   const [favorites, setFavorites] = useState<FavoriteArtists>([]);

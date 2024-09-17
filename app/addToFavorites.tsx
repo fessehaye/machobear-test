@@ -1,14 +1,10 @@
 import { useEffect, useState } from "react";
+import { FavoriteArtists } from "./types";
 
 type FavProps = {
   id: string;
   name: string;
 };
-
-export type FavoriteArtists = {
-  id: string;
-  name: string;
-}[];
 
 export default function AddToFavorite({ id, name }: FavProps) {
   const [favorites, setFavorites] = useState<FavoriteArtists>([]);

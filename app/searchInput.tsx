@@ -2,16 +2,7 @@ import { useEffect, useState } from "react";
 import TextSearchResults from "./textSearchResults";
 import { useLocation } from "@remix-run/react";
 import { useDebounce } from "@uidotdev/usehooks";
-export type DataResult = {
-  artists: {
-    name: string;
-    id: string;
-  }[];
-  albums: {
-    name: string;
-    id: string;
-  }[];
-};
+import { DataResult } from "./types";
 
 const querySearch = async (searchText: string): Promise<DataResult | null> => {
   const url = new URL("/search", window.location.origin);

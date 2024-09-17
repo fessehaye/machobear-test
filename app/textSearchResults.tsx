@@ -1,5 +1,5 @@
 import { Link } from "@remix-run/react";
-import { DataResult } from "./searchInput";
+import { DataResult } from "./types";
 type TextSearchProps = {
   results: DataResult | null;
 };
