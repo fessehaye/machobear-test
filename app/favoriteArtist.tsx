@@ -29,6 +29,7 @@ export default function FavoriteArtistsComponent() {
               <div key={fav.id} className="w-full flex py-2 pr-2 ">
                 <Link
                   prefetch="intent"
+                  unstable_viewTransition
                   to={`/details/artist/${fav.id}`}
                   className="max-w-28 md:max-w-none truncate"
                 >
