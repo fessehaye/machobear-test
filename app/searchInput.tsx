@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import TextSearchResults from "./textSearchResults";
 import { useLocation } from "@remix-run/react";
+import { useDebounce } from "@uidotdev/usehooks";
 export type DataResult = {
   artists: {
     name: string;
@@ -38,20 +39,21 @@ const querySearch = async (searchText: string): Promise<DataResult | null> => {
 
 export default function SearchInput() {
   const [text, setText] = useState("");
+  const debouncedText = useDebounce(text, 300);
   const { pathname } = useLocation();
   const [results, setResults] = useState<DataResult | null>(null);
 
   useEffect(() => {
     async function fetchData() {
-      if (text) {
-        const data = await querySearch(text);
+      if (debouncedText) {
+        const data = await querySearch(debouncedText);
         setResults(data);
       } else {
         setResults(null);
       }
     }
     fetchData();
-  }, [text]);
+  }, [debouncedText]);
 
   useEffect(() => {
     setText("");
@@ -59,6 +61,7 @@ export default function SearchInput() {
       setText("");
     };
   }, [pathname]);
+
   return (
     <div className="w-full max-w-[800px] flex flex-col mx-auto">
       <div className="relative">

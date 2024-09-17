@@ -12,11 +12,16 @@ export const meta: MetaFunction = () => {
 export default function Index() {
   return (
     <main>
-      <div className="bg-black py-20 px-4 w-full">
+      <div className=" py-20 px-4 w-full relative">
         <h1 className="font-bold text-white text-center w-full text-xl lg:text-4xl mb-8">
           Music Search
         </h1>
         <SearchInput />
+        <img
+          src="music.jpg"
+          alt=""
+          className="absolute w-full h-full -z-10 top-0 left-0 object-cover"
+        />
       </div>
       <div className="py-20 px-4 w-full max-w-[800px] mx-auto">
         <FavoriteArtistsComponent />
