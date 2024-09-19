@@ -1,40 +1,29 @@
-# Welcome to Remix!
+# Machobear Test
 
-- 📖 [Remix docs](https://remix.run/docs)
+Before running create a `.env` file and add these variables
 
-## Development
-
-Run the dev server:
-
-```shellscript
-npm run dev
+```
+SPOTIFY_CLIENT_ID=<your-client-id>
+SPOTIFY_CLIENT_SECRET=<your-client-secret>
 ```
 
-## Deployment
+You can get the client tokens from https://developer.spotify.com/ and creating an app.
 
-First, build your app for production:
+You can run the project via
 
-```sh
-npm run build
-```
+`npm run dev`
 
-Then run the app in production mode:
+This application was built using:
+* Remix
+* React
+* Typescript
+* TailwindCSS
+* Spotify TS SDK
 
-```sh
-npm start
-```
+There are four routes on this application:
+* `/` - Home Page featuring your favorite artists
+* `/details/artist/<ID>` - Artist detail page including Albums and Adding an artist in your favorites
+* `/details/album/<ID>` - Album detail page including Track Listing
+* `/search` - API Only, fetches spotify search results based on `q` text
 
-Now you'll need to pick a host to deploy it to.
-
-### DIY
-
-If you're familiar with deploying Node applications, the built-in Remix app server is production-ready.
-
-Make sure to deploy the output of `npm run build`
-
-- `build/server`
-- `build/client`
-
-## Styling
-
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever css framework you prefer. See the [Vite docs on css](https://vitejs.dev/guide/features.html#css) for more information.
+Favorite artists are saved via `localstorage`
