@@ -31,12 +31,12 @@ export default function FavoriteArtistsComponent() {
                   prefetch="intent"
                   unstable_viewTransition
                   to={`/details/artist/${fav.id}`}
-                  className="max-w-28 md:max-w-none truncate"
+                  className="max-w-28 md:max-w-none truncate hover:text-green-500"
                 >
                   {fav.name}
                 </Link>
                 <button
-                  className="ml-auto flex items-center text-red-700"
+                  className="ml-auto flex items-center text-red-700 group hover:underline"
                   onClick={() => removeFavorite(fav.id)}
                 >
                   <svg
