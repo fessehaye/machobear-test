@@ -91,6 +91,7 @@ export default function ArtistPage() {
                 unstable_viewTransition
                 to={`/details/album/${album.id}`}
                 key={album.id}
+                data-testid="album-link"
                 className="w-full flex gap-4 text-[#686868] text-base group hover:bg-gray-100 p-3 rounded-sm"
               >
                 <img

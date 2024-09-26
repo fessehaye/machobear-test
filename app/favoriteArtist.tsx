@@ -20,7 +20,10 @@ export default function FavoriteArtistsComponent() {
   };
 
   return (
-    <div className="border border-[#D9D9D9] border-solid p-8">
+    <div
+      className="border border-[#D9D9D9] border-solid p-8"
+      data-testid="fav-artist-container"
+    >
       <h2 className="font-bold text-2xl leading-7 mb-8">My Favorite Artists</h2>
       {favorites.length > 0 ? (
         <div className="divide-y-2">
@@ -60,7 +63,7 @@ export default function FavoriteArtistsComponent() {
           })}
         </div>
       ) : (
-        <p>No Favorites added yet.</p>
+        <p data-testid="empty-favorites">No Favorites added yet.</p>
       )}
     </div>
   );
