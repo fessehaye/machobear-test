@@ -35,6 +35,7 @@ export default function AddToFavorite({ id, name }: FavProps) {
   return (
     <button
       onClick={() => toggleFavorite()}
+      data-testid="add-to-favorite"
       className={`flex gap-2 ${isFavorite ? "text-red-500" : "text-black"}`}
     >
       <svg

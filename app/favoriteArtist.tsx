@@ -26,16 +26,22 @@ export default function FavoriteArtistsComponent() {
         <div className="divide-y-2">
           {favorites.map((fav) => {
             return (
-              <div key={fav.id} className="w-full flex py-2 pr-2 ">
+              <div
+                key={fav.id}
+                className="w-full flex py-2 pr-2 "
+                data-testid="fav-artist"
+              >
                 <Link
                   prefetch="intent"
                   unstable_viewTransition
                   to={`/details/artist/${fav.id}`}
                   className="max-w-28 md:max-w-none truncate hover:text-green-500"
+                  data-testid="fav-artist-link"
                 >
                   {fav.name}
                 </Link>
                 <button
+                  data-testid="fav-artist-removal"
                   className="ml-auto flex items-center text-red-700 group hover:underline"
                   onClick={() => removeFavorite(fav.id)}
                 >

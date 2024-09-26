@@ -10,6 +10,7 @@ export default function DetailPage() {
           to="/"
           unstable_viewTransition
           className="text-white absolute left-4 top-1/2 -translate-y-1/2 hidden lg:inline-block"
+          data-testid="home-button"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

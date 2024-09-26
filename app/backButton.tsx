@@ -4,7 +4,11 @@ export default function BackButton() {
   const goBack = () => navigate(-1);
 
   return (
-    <button onClick={goBack} className="flex gap-2 hover:text-green-500">
+    <button
+      onClick={goBack}
+      className="flex gap-2 hover:text-green-500"
+      data-testid="back-button"
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"

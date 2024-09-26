@@ -9,7 +9,10 @@ export default function TextSearchResults({ results }: TextSearchProps) {
   }
   const { artists, albums } = results;
   return (
-    <div className="bg-white absolute translate-y-2 rounded-sm w-full p-3 space-y-1 ">
+    <div
+      className="bg-white absolute translate-y-2 rounded-sm w-full p-3 space-y-1 "
+      data-testid="search-results"
+    >
       {artists.length > 0 ? (
         <>
           <div className="text-gray-400 font-bold mb-2">Artists</div>

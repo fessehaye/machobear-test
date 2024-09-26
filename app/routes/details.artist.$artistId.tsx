@@ -59,7 +59,9 @@ export default function ArtistPage() {
       <div className="flex flex-col md:flex-row gap-8 mb-16">
         <img src={image} alt="artist cover" className="size-52" />
         <div>
-          <h1 className="font-bold text-2xl mb-2">{name}</h1>
+          <h1 className="font-bold text-2xl mb-2" data-testid="artist-name">
+            {name}
+          </h1>
           <p className="text-gray-500 mb-8 flex gap-4">
             <span>{`Popularity(0-100): ${popularity}`}</span>
             <span>{`Followers: ${numFormatter.format(followers.total)}`}</span>
@@ -78,7 +80,10 @@ export default function ArtistPage() {
       </div>
       <div>
         <h2 className="font-bold text-2xl mb-4">Albums</h2>
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-y-5">
+        <div
+          className="grid lg:grid-cols-2 gap-8 lg:gap-y-5"
+          data-testid="album-listing"
+        >
           {albums.map((album) => {
             return (
               <Link
@@ -115,7 +120,9 @@ export function ErrorBoundary() {
   return (
     <div className="text-red-brand text-center">
       <BackButton />
-      <div className="mt-8 text-base font-bold">Artist not found</div>
+      <div className="mt-8 text-base font-bold" data-testid="page-error">
+        Artist not found
+      </div>
       <div className="px-2 text-base">There was a problem. Sorry.</div>
     </div>
   );

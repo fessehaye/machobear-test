@@ -11,8 +11,8 @@ export const meta: MetaFunction = () => {
 
 export default function Index() {
   return (
-    <main>
-      <div className=" py-20 lg:py-48 px-4 w-full relative">
+    <main className="min-h-screen">
+      <div className=" py-20 lg:py-48 px-4 w-full relative ">
         <h1 className="font-bold text-white text-center w-full text-xl lg:text-4xl mb-8">
           Music Search
         </h1>

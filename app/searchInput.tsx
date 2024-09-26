@@ -76,6 +76,7 @@ export default function SearchInput() {
           type="text"
           className="block w-full p-[18px] ps-10 pe-10 text-base leading-none placeholder:text-[#686868] text-black border border-gray-300 rounded-lg bg-gray-50 "
           placeholder="Search by Artist or Album"
+          data-testid="search-input"
           value={text}
           onChange={(e) => setText(e.target.value)}
         />
@@ -83,6 +84,7 @@ export default function SearchInput() {
         {text.length > 0 ? (
           <button
             className="absolute end-2.5 inset-y-0"
+            data-testid="clear-input"
             onClick={() => setText("")}
           >
             <svg
