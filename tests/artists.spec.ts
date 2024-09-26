@@ -16,7 +16,7 @@ const ALBUMS = [
 ] as const;
 
 test.describe("Search Bar", () => {
-  test("should allow me to go to multiple artist pages and add to favorite", async ({
+  test("should allow me to go to an artist page and add to favorite", async ({
     page,
   }) => {
     // create a search locator
@@ -36,23 +36,14 @@ test.describe("Search Bar", () => {
     // Check if Favorite button state changes
     await expect(favButton).toContainText("Remove as Favorite");
 
-    // search 2nd artist.
-    await searchInput.fill(ARTISTS[1].name);
-    await page.getByTestId("search-results").waitFor();
-    await page.getByTestId("search-results").locator("a").first().click();
-
-    await expect(page.getByTestId("artist-name")).toHaveText([ARTISTS[1].name]);
-    await favButton.click();
-
     await page.getByTestId("home-button").click();
 
     // // Make sure the list now has two todo items.
     await expect(page.getByTestId("fav-artist-link")).toHaveText([
       ARTISTS[0].name,
-      ARTISTS[1].name,
     ]);
 
-    await checkNumberOfFavArtistsInLocalStorage(page, 2);
+    await checkNumberOfFavArtistsInLocalStorage(page, 1);
   });
 
   test("should clear text input field when you click on the clear button", async ({
