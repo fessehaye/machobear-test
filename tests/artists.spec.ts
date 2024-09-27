@@ -1,14 +1,15 @@
 import { test, expect, type Page } from "@playwright/test";
+import { FavoriteArtists } from "~/types";
 
 test.beforeEach(async ({ page }) => {
   await page.goto("http://localhost:5173/");
 });
 
-const ARTISTS = [
+const ARTISTS: FavoriteArtists = [
   { name: "Taylor Swift", id: "06HL4z0CvFAxyc27GXpf02" },
   { name: "Red Hot Chili Peppers", id: "0L8ExT028jH3ddEcZwqJJ5" },
   { name: "The Beatles", id: "3WrFJ7ztbogyGnTHbHJFl2" },
-] as const;
+];
 
 const ALBUMS = [
   { name: "Justice", id: "4GGazqHvuKwxBjWLFaJkDL" },
@@ -162,12 +163,11 @@ test.describe("Navigation", () => {
 });
 
 async function createDefaultFavoriteArtists(page: Page) {
-  for (const artist of ARTISTS) {
-    await page.goto(`http://localhost:5173/details/artist/${artist.id}`);
-    await page.getByTestId("add-to-favorite").click();
-  }
+  await page.evaluate((artists) => {
+    localStorage.setItem("favorites", JSON.stringify(artists));
+  }, ARTISTS);
 
-  await page.goto(`http://localhost:5173/`);
+  await page.reload();
 }
 
 async function checkNumberOfFavArtistsInLocalStorage(
