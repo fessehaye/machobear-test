@@ -13,12 +13,17 @@ You can run the project via
 
 `npm run dev`
 
+and run tests via 
+
+`npm run test`
+
 This application was built using:
 * Remix
 * React
 * Typescript
 * TailwindCSS
 * Spotify TS SDK
+* Playwright for tests
 
 There are four routes on this application:
 * `/` - Home Page featuring your favorite artists
